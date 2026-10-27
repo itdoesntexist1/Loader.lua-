@@ -1,0 +1,23 @@
+-- ============================================
+-- SISTEMA DE LICENCIAS Y KEYS ZYOX
+-- ============================================
+
+-- Lista de Keys autorizadas (cambia o agrega las que quieras aquí)
+local keysValidas = {
+    ["ZYOX-KEY-VIP1"] = true,
+    ["ZYOX-KEY-VIP2"] = true,
+    ["MI-KEY-PERSONAL"] = true
+}
+
+-- Lee la key que ingresa el usuario
+local userKey = _G.ZyoxKey or ""
+
+if keysValidas[userKey] then
+    print("[ZYOX Security] Key verificada correctamente. Cargando Payload...")
+    
+    -- Carga tu script ofuscado
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/itdoesntexist1/Payloadv2./refs/heads/main/Payloadv2."))()
+else
+    warn("[ZYOX Security] Acceso denegado: Key invalida o expirada.")
+    error("Ingresa una Key valida usando _G.ZyoxKey = 'TU_KEY'")
+end
